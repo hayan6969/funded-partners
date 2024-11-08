@@ -1,6 +1,10 @@
+
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Button } from "@/components/ui/button";
+import authService from "./appwrite/auth";
+import LogoutButton from "@/components/logout";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,11 +28,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body 
+
+    <html className="dark" lang="en">
+      <body
+
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <LogoutButton />
       </body>
     </html>
   );
