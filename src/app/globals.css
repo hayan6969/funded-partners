@@ -61,7 +61,7 @@ body {
     --chart-5: 340 75% 55%;
   }
 }
-
+body{overflow-x: hidden}
 @layer base {
   * {
     @apply border-border;
@@ -69,4 +69,17 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+.bounce-icon{
+  animation: bounce_1 1.5s infinite linear;
+}
+@keyframes bounce_1 {
+  0%,100%{
+    scale: 1;
+  }50%{
+     scale: 1.1;
+  }
+}
+.balance-button-gradient{
+  background: linear-gradient(to right,#3305FF,rgba(255, 255, 255, 0.26),#3305FF);
 }
