@@ -5,9 +5,11 @@ import Shader from '../shader/shader'
 import InstantFunding from '../EvaluationBalance layout/instantFunding'
 import TwoStepChallange from '../EvaluationBalance layout/twoStepChallange'
 import Image from 'next/image'
+import { useSelector } from 'react-redux'
+import { RootState } from '../redux/store/store'
 function Partner() {
   const [active,setActive]=useState(false)
-
+  const count = useSelector((state:RootState) => state.counter.value);
   return (
     <section className='w-screen relative bg-[#080808]  px-24 py-24 flex flex-col gap-12 before:absolute before:w-full before:h-full before:bg-[#151414] before:opacity-80 before:left-0 before:top-0'>
       {/* -------------------------------------------------| Why Funded Partners |-------------------------------------------------- */}
@@ -63,10 +65,15 @@ function Partner() {
              <h5 className='text-lg text-center'>Select Balance:</h5>
              
  {active?<TwoStepChallange/>:<InstantFunding/>}
+ <button className={`${active?'bg-[#3305FF] text-white':'bg-white text-black'} px-3 py-2 rounded-lg`} onClick={e=>{
+  e.preventDefault();
+  console.log(count)
+  }}>get Startes</button>
+
         </div>
  </div>
       {/* -------------------------------------------------| Guaranteed Reward |-------------------------------------------------- */}
-      <div className='w-full py-10 px-10 bg-[#FFFFFF1F] text-white rounded-xl flex justify-between items-center relative before:absolute before:w-96 before:h-96 before:bg-[#3305FF] before:bg-opacity-10 before:rounded-full before:blur-3xl before:-left-20 before:-top-60 after:absolute after:w-96 after:h-96 after:bg-[#9CF05C]  after:bg-opacity-10 after:rounded-full  after:blur-3xl after:bottom-0 after:-right-20' style={{"backdrop-filter":"blur(10px)"}}>
+      <div className='w-full py-10 px-10 bg-[#FFFFFF1F] text-white rounded-xl flex justify-between items-center relative before:absolute before:w-96 before:h-96 before:bg-[#3305FF] before:bg-opacity-10 before:rounded-full before:blur-3xl before:-left-20 before:-top-60 after:absolute after:w-96 after:h-96 after:bg-[#9CF05C]  after:bg-opacity-10 after:rounded-full  after:blur-3xl after:bottom-0 after:-right-20' style={{"backdropFilter":"blur(10px)"}}>
         <div className='flex flex-col gap-3 w-1/2 h-full z-10 justify-center'>
             <div className='flex flex-col gap-3'>
         <h5 className='text-5xl text-[#0468F9] font-bold'>Guaranted Rewards</h5>
@@ -83,7 +90,7 @@ function Partner() {
         </div>
       </div>
       {/* -------------------------------------------------| Join Our Discord Community |-------------------------------------------------- */}
-      <div className='w-full py-12 px-10 bg-[#FFFFFF1F] text-white rounded-xl flex justify-between items-center relative ' style={{"backdrop-filter":"blur(10px)"}}>
+      <div className='w-full py-12 px-10 bg-[#FFFFFF1F] text-white rounded-xl flex justify-between items-center relative ' style={{"backdropFilter":"blur(10px)"}}>
         <div className='flex flex-col gap-6 w-1/2 h-full z-10'>
             <div className='flex flex-col gap-3'>
         <h5 className='text-5xl text-[#0468F9] font-bold'>Join Our Discord Community</h5>

@@ -1,6 +1,6 @@
 'use client'
 import React from 'react';
-import { decrement, increment, incrementByAmount } from './redux/slices/counterSlice';
+import {incrementByAmount } from './redux/slices/counterSlice';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { RootState } from './redux/store/store';
@@ -13,9 +13,9 @@ const Counter = () => {
   return (
     <div>
       <h1>Counter: {count}</h1>
-      <button onClick={() => dispatch(increment())}>Increment</button>
-      <button onClick={() => dispatch(decrement())}>Decrement</button>
-      <button onClick={() => dispatch(incrementByAmount(5))}>Increment by 5</button>
+      <button onClick={() => dispatch(incrementByAmount(1000))}>Increment by 1000</button>
+      <button onClick={() => dispatch(incrementByAmount(2000))}>Increment by 2000</button>
+      <button onClick={() => dispatch(incrementByAmount(3000))}>Increment by 3000</button>
     </div>
   );
 };

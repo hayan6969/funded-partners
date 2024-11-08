@@ -1,10 +1,14 @@
+"use client"
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { incrementByAmount, setAmount } from '../redux/slices/counterSlice'
 
 function InstantFunding() {
   const [activeBtn1,setActiveBtn1]=useState(true)
   const [activeBtn2,setActiveBtn2]=useState(false)
   const [activeBtn3,setActiveBtn3]=useState(false)
   const [active,setActive]=useState(false)
+  const dispatch = useDispatch();
   return (
     <div className='w-full h-full flex flex-col items-center gap-4'>
 
@@ -14,18 +18,21 @@ function InstantFunding() {
           setActiveBtn1(true);
           setActiveBtn2(false);
           setActiveBtn3(false);
-          }
-          }>$6000</button>
+          dispatch(setAmount(6000))
+        }
+      }>$6000</button>
       <button className={`${activeBtn2?'bg-white text-black':'text-white bg-transparent'} text-sm px-5 py-1 rounded-full`}  onClick={e=>{
         setActiveBtn1(false);
         setActiveBtn2(true);
         setActiveBtn3(false);
-        }}>$10000</button>
+        dispatch(setAmount(10000))
+      }}>$10000</button>
       <button className={`${activeBtn3?'bg-white text-black':'text-white bg-transparent'} text-sm px-5 py-1 rounded-full`}  onClick={
         e=>{
           setActiveBtn1(false);
           setActiveBtn2(false);
           setActiveBtn3(true);
+          dispatch(setAmount(12000))
           }}>$12000</button>
 
       </div>
