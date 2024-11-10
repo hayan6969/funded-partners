@@ -100,7 +100,7 @@ function Dashboard() {
         <div className='min-h-screen flex flex-col'>
         <Nav />
            
-            <main className='flex-grow bg-[#080808] relative overflow-hidden'>
+            <main className='flex-grow bg-[#080808] relative overflow-hidden pt-16'>
                 <div className='absolute w-96 h-96 bg-[#3305FF] bg-opacity-10 rounded-full blur-3xl -top-10 left-0'></div>
                 <div className='absolute w-96 h-96 bg-[#9CF05C] bg-opacity-10 rounded-full blur-3xl top-10 -left-20'></div>
                 <div className='container mx-auto py-12 relative z-10'>
