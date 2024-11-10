@@ -1,3 +1,4 @@
+
 'use client'
 import Footer from '@/components/footer/footer'
 import Nav from '@/components/navbar/nav'
@@ -9,10 +10,11 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import { Provider } from 'react-redux'
 
+
 function Page() {
   const [active,setActive]=useState(false)
   return (
-    <Provider store={store}>
+<>
       <Nav/>
       <section className='w-screen relative bg-[#080808] flex flex-col before:absolute before:w-96 before:h-96 before:bg-[#3305FF] before:bg-opacity-10 before:rounded-full before:z-[1] before:blur-3xl before:-top-10 after:absolute after:w-96 after:h-96 after:bg-[#9CF05C]  after:bg-opacity-10 after:rounded-full after:z-[1] after:blur-3xl after:top-10 after:-left-20 py-24  gap-12'>
  <div className='flex flex-col gap-4 text-center w-full z-10 px-44'>
@@ -70,7 +72,9 @@ function Page() {
        </div>
       </section>
       <Footer/>
-    </Provider>
+  </>
+    
+
   )
 }
 

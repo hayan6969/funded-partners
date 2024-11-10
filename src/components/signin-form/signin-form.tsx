@@ -7,32 +7,39 @@ import Link from "next/link";
 import {LoaderCircle} from "lucide-react";
 import authService from "@/appwrite/auth";
 import { useRouter } from "next/navigation";
+import { Provider, useDispatch } from "react-redux";
+import {login as authLogin} from "../redux/slices/authSlice";
+import { store } from "../redux/store/store";
 
 
 export default function SigninForm() {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const dispatch = useDispatch();
+ 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
     console.log("Form submitted", data);
     setLoading(true);
-    authService.login({
+    const userData= await authService.login({
       email: data.email.toString(),
       password: data.password.toString(),
-    }).then(() => {
-      console.log('login Successfully')
-      setLoading(false);
-      router.push('/');
-      
-      
     }).catch((error) => {
         console.log('login error', error)
         setLoading(false);
     });
+
+    if (userData) {
+      console.log("login successfull")
+      dispatch(authLogin(userData));
+      router.push("/");
+    }
+    
   };
   const router = useRouter();
 const [loading, setLoading] = React.useState(false);
   return (
+    <Provider store={store}>
     <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
       <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
         Sign in to Funded Partners
@@ -70,6 +77,7 @@ const [loading, setLoading] = React.useState(false);
         </button>
       </form>
     </div>
+    </Provider>
   );
 }
 
