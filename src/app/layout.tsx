@@ -2,9 +2,15 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { Button } from "@/components/ui/button";
-import authService from "./appwrite/auth";
+import {Poppins} from 'next/font/google'
 import LogoutButton from "@/components/logout";
+import ProviderComponent from "@/components/provider/provider";
+
+const lato = Poppins({
+  subsets: ['latin'],
+  weight: ['100','300','400','700','900'],
+  variable: '--font-lato',
+})
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,10 +38,13 @@ export default function RootLayout({
     <html className="dark" lang="en">
       <body
 
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${lato.className} antialiased`}
       >
+        <ProviderComponent>
         {children}
         <LogoutButton />
+        </ProviderComponent>
+       
       </body>
     </html>
   );
