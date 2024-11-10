@@ -7,7 +7,6 @@ import { useSelector } from 'react-redux';
 import {CircleUserRound} from 'lucide-react'
 
 function Nav() {
-
     const pathname=usePathname();
     const isLoggedIn = useSelector((state: { auth: { status: boolean } }) => state.auth.status);
   
@@ -26,6 +25,7 @@ function Nav() {
         {title}
         </Link>
         )}
+
 {
   isLoggedIn ? (
     <Link href={'/dashboard'}>
@@ -39,6 +39,7 @@ function Nav() {
 
   )
 }
+
        </div>
     </nav>
         </header>

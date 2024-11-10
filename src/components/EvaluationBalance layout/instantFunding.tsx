@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { incrementByAmount, setAmount } from '../redux/slices/counterSlice'
+import { setBalance, setPlan, setTotal } from '../redux/slices/counterSlice'
 
 function InstantFunding() {
   const [activeBtn1,setActiveBtn1]=useState(true)
@@ -9,6 +9,8 @@ function InstantFunding() {
   const [activeBtn3,setActiveBtn3]=useState(false)
   const [active,setActive]=useState(false)
   const dispatch = useDispatch();
+  const oneTime=1059;
+  const monthly=599;
   return (
     <div className='w-full h-full flex flex-col items-center gap-4'>
 
@@ -18,27 +20,34 @@ function InstantFunding() {
           setActiveBtn1(true);
           setActiveBtn2(false);
           setActiveBtn3(false);
-          dispatch(setAmount(6000))
+          dispatch(setBalance(6000))
         }
       }>$6000</button>
       <button className={`${activeBtn2?'bg-white text-black':'text-white bg-transparent'} text-sm px-5 py-1 rounded-full`}  onClick={e=>{
         setActiveBtn1(false);
         setActiveBtn2(true);
         setActiveBtn3(false);
-        dispatch(setAmount(10000))
+        dispatch(setBalance(10000))
       }}>$10000</button>
       <button className={`${activeBtn3?'bg-white text-black':'text-white bg-transparent'} text-sm px-5 py-1 rounded-full`}  onClick={
         e=>{
           setActiveBtn1(false);
           setActiveBtn2(false);
           setActiveBtn3(true);
-          dispatch(setAmount(12000))
+          dispatch(setBalance(12000))
           }}>$12000</button>
 
       </div>
       <div className=' bg-[#252525] flex justify-between items-center px-6 py-4 rounded-xl gap-4'>
-      <button className={`${!active?'bg-[#3305FF] text-white':'bg-white text-black'} px-3 py-2 rounded-lg text-lg`} onClick={e=>{setActive(false)}}>$1,059&nbsp;<sub className='text-xs'>One time</sub></button>
-      <button className={`${active?'bg-[#3305FF] text-white':'bg-white text-black'} px-4 py-2 rounded-lg text-lg`} onClick={e=>{setActive(true)}}>$599&nbsp;<sub className='text-xs'>Monthly</sub></button>
+      <button className={`${!active?'bg-[#3305FF] text-white':'bg-white text-black'} px-3 py-2 rounded-lg text-lg`} onClick={e=>{
+        setActive(false);
+        dispatch(setPlan("oneTime"),setTotal(oneTime));
+        dispatch(setPlan("monthly"),setTotal(monthly));
+      }}>${oneTime}&nbsp;<sub className='text-xs'>One time</sub></button>
+      <button className={`${active?'bg-[#3305FF] text-white':'bg-white text-black'} px-4 py-2 rounded-lg text-lg`} onClick={e=>{
+        setActive(true);
+        dispatch(setPlan("monthly"),setTotal(monthly));
+        }}>${monthly}&nbsp;<sub className='text-xs'>Monthly</sub></button>
 </div>
 <div className='flex gap-4 w-full h-full justify-center'>
 <div className='flex flex-col gap-4 py-12 px-4'>
