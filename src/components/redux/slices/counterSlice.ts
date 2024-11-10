@@ -1,22 +1,39 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 interface CounterState{
-    value:number;
+    date:string;
+    userID:string
+    type:string;
+    balance:number;
+    plan:string;
+    total:number
 }
 const initialState:CounterState={
-value:0
+    date:new Date(),
+    userID:"",
+    type:"instantFunding",
+    balance:6000,
+    plan:"oneTime",
+    total:1059,
 }
 export const counterSlice = createSlice({
     name: 'counter',
     initialState,
     reducers: {
-        
-        incrementByAmount:(state,action: PayloadAction<number>)=>{
-            state.value=action.payload;
+        setUserID:(state,action: PayloadAction<string>)=>{
         },
-        setAmount:(state,action: PayloadAction<number>)=>{
-            state.value=action.payload;
+        setType:(state,action: PayloadAction<string>)=>{
+            state.type=action.payload;
+        },
+        setBalance:(state,action: PayloadAction<number>)=>{
+            state.balance=action.payload;
+        },
+        setPlan:(state,action: PayloadAction<string>)=>{
+            state.plan=action.payload;
+        },
+        setTotal:(state,action: PayloadAction<number>)=>{
+            state.total=action.payload;
         },
     }
 })
-export const {incrementByAmount,setAmount}=counterSlice.actions;
+export const {setUserID,setType,setBalance,setPlan,setTotal}=counterSlice.actions;
 export default counterSlice.reducer

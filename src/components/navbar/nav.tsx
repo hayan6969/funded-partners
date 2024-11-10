@@ -5,7 +5,6 @@ import { usePathname } from 'next/navigation';
 import React from 'react'
 
 function Nav() {
-
     const pathname=usePathname();
   return (
     <header className='fixed w-screen flex items-center justify-center z-50'>
@@ -22,7 +21,7 @@ function Nav() {
         {title}
         </Link>
         )}
-           <button className='px-3 py-2 bg-[#3305FF] rounded-lg'>Login</button>
+           <Link href='/sign-in' className='px-3 py-2 bg-[#3305FF] rounded-lg'>Login</Link>
        </div>
     </nav>
         </header>

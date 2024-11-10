@@ -11,7 +11,7 @@ function page() {
     <section className='w-screen relative bg-[#080808] flex flex-col before:absolute before:w-96 before:h-96 before:bg-[#3305FF] before:bg-opacity-10 before:rounded-full before:z-[1] before:blur-3xl before:-top-10 after:absolute after:w-96 after:h-96 after:bg-[#9CF05C]  after:bg-opacity-10 after:rounded-full after:z-[1] after:blur-3xl after:top-10 after:-left-20 py-24'>
       <div className='flex flex-col gap-6 items-center text-white px-44'>
         <div className='text-center flex flex-col gap-4'>
-        <div className='text-6xl text-[#BAAEFF] font-bold'>Lets Get In Touch</div>
+        <div className='text-6xl font-bold relative bg-gradient-to-r from-[#FFFFFF] to-[#5B8BE3] bg-clip-text text-transparent'>Lets Get In Touch</div>
         <div className='text-2xl font-semibold'>Don't be afraid to say hello</div>
         </div>
         <div className='flex flex-col rounded-xl overflow-hidden'>
@@ -21,9 +21,9 @@ function page() {
             <p className='font-medium'>Email: support@fundedpartners.com</p>
          </div>
          <form onSubmit={handleSubmit} className='flex flex-col gap-2 py-6 bg-[#FFFFFF1F] bg-opacity-20 ' style={{"backdropFilter":"blur(10px)"}}>
-            <div className='flex flex-col gap-1'>
+            <div className='flex flex-col gap-1  border-b border-slate-500 '>
             <h5 className='text-2xl font-medium ml-4'>Contact</h5>
-            <hr className='opacity-20' />
+            <hr className='' />
             </div>
             <div className='flex flex-col'>
            <input type="text" placeholder='Fullname' className='text-lg  bg-transparent border-none outline-none px-4 py-2' />
@@ -61,5 +61,4 @@ function page() {
     </div>
   )
 }
-
 export default page
