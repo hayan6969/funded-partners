@@ -2,9 +2,19 @@
 import Footer from '@/components/footer/footer'
 import Nav from '@/components/navbar/nav'
 import React from 'react'
-
+import { useForm, SubmitHandler } from "react-hook-form"
+type Inputs = {
+  example: string
+  exampleRequired: string
+}
 function page() {
-    const handleSubmit=(e: { preventDefault: () => void })=>{e.preventDefault()}
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<Inputs>()
+  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
   return (
     <div className=''>
     <Nav/>
@@ -20,33 +30,32 @@ function page() {
             <p className='font-medium'>Contact us for any quaries.</p>
             <p className='font-medium'>Email: support@fundedpartners.com</p>
          </div>
-         <form onSubmit={handleSubmit} className='flex flex-col gap-2 py-6 bg-[#FFFFFF1F] bg-opacity-20 ' style={{"backdropFilter":"blur(10px)"}}>
-            <div className='flex flex-col gap-1  border-b border-slate-500 '>
+         <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-2 py-6 bg-[#FFFFFF1F] bg-opacity-20 text-base font-normal' style={{"backdropFilter":"blur(10px)"}}>
+            <div className='flex flex-col gap-1 pb-2 border-b border-slate-600 '>
             <h5 className='text-2xl font-medium ml-4'>Contact</h5>
-            <hr className='' />
             </div>
-            <div className='flex flex-col'>
-           <input type="text" placeholder='Fullname' className='text-lg  bg-transparent border-none outline-none px-4 py-2' />
+            <div className='flex flex-col border-b border-slate-600'>
+           <input type="text" placeholder='Fullname' {...register("fullname")} className='text-lg  bg-transparent border-none outline-none px-4 py-2'/>
            <hr className='opacity-20' />
             </div>
-            <div className='flex w-full gap-4'>
-            <div className='flex flex-col w-full'>
-           <input type="text" placeholder='Phone' className='text-lg  bg-transparent border-none outline-none px-4 py-2' />
+            <div className='flex w-full gap-4 '>
+            <div className='flex flex-col w-full border-b border-slate-600'>
+           <input type="text" placeholder='Phone' {...register("phone no")} className='text-lg  bg-transparent border-none outline-none px-4 py-2' />
            <hr className='opacity-20' />
             </div>
-            <div className='flex flex-col w-full'>
-           <input type="text" placeholder='Email' className='text-lg  bg-transparent border-none outline-none px-4 py-2' />
+            <div className='flex flex-col w-full border-b border-slate-600'>
+           <input type="text" placeholder='Email' {...register("email")} className='text-lg  bg-transparent border-none outline-none px-4 py-2' />
            <hr className='opacity-20' />
             </div>
             </div>
-            <div className='flex flex-col w-full'>
-           <input type="text" placeholder='Subject' className='text-lg  bg-transparent border-none outline-none px-4 py-2' />
+            <div className='flex flex-col w-full border-b border-slate-600'>
+           <input type="text" placeholder='Subject' {...register("subject")} className='text-lg  bg-transparent border-none outline-none px-4 py-2' />
            <hr className='opacity-20' />
             </div>
-            <div className='flex flex-col w-full'>
+            <div className='flex flex-col w-full border-b border-slate-600'>
            <label htmlFor="textarea" className='text-gray-500 pl-4 py-2'>Message</label>
            <hr className='opacity-20' />
-              <textarea name="textarea" className='w-full h-full bg-transparent border-none outline-none p-4 text-base' rows={7}></textarea>
+              <input {...register("message")}  className='w-full h-full bg-transparent border-none outline-none p-4 text-base'></input>
            <hr className='opacity-20' />
             </div>
             <div className='w-full flex justify-center py-2'>

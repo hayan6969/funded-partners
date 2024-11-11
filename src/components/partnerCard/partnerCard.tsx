@@ -6,7 +6,7 @@ interface className {
   point1:string
   point2:string
 }
-const PricingCard: React.FC<className> = ({ 
+const partnerCard: React.FC<className> = ({ 
   track="Track 1", 
   title="Title",
   point1="point-1",
@@ -29,4 +29,4 @@ const PricingCard: React.FC<className> = ({
   )
 }
 
-export default PricingCard
+export default partnerCard
