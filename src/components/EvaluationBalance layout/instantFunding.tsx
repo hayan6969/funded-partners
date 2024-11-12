@@ -2,15 +2,17 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { setBalance, setPlan, setTotal } from '../redux/slices/counterSlice'
+import { useSelector } from 'react-redux'
+import { RootState } from '../redux/store/store'
 
 function InstantFunding() {
   const [activeBtn1,setActiveBtn1]=useState(true)
   const [activeBtn2,setActiveBtn2]=useState(false)
   const [activeBtn3,setActiveBtn3]=useState(false)
   const [active,setActive]=useState(false)
+  const [oneTime,setOneTime]=useState(1059)
+  const [monthly,setMonthly]=useState(599)
   const dispatch = useDispatch();
-  const oneTime=1059;
-  const monthly=599;
   return (
     <div className='w-full h-full flex flex-col items-center gap-4'>
 
@@ -20,6 +22,8 @@ function InstantFunding() {
           setActiveBtn1(true);
           setActiveBtn2(false);
           setActiveBtn3(false);
+          setOneTime(1059)
+          setMonthly(599)
           dispatch(setBalance(6000))
         }
       }>$6000</button>
@@ -27,6 +31,8 @@ function InstantFunding() {
         setActiveBtn1(false);
         setActiveBtn2(true);
         setActiveBtn3(false);
+        setOneTime(2059)
+        setMonthly(1099)
         dispatch(setBalance(10000))
       }}>$10000</button>
       <button className={`${activeBtn3?'bg-white text-black':'text-white bg-transparent'} text-sm px-5 py-1 rounded-full`}  onClick={
@@ -34,6 +40,8 @@ function InstantFunding() {
           setActiveBtn1(false);
           setActiveBtn2(false);
           setActiveBtn3(true);
+          setOneTime(3059)
+          setMonthly(1599)
           dispatch(setBalance(12000))
           }}>$12000</button>
 
@@ -41,12 +49,13 @@ function InstantFunding() {
       <div className=' bg-[#252525] flex justify-between items-center px-6 py-4 rounded-xl gap-4'>
       <button className={`${!active?'bg-[#3305FF] text-white':'bg-white text-black'} px-3 py-2 rounded-lg text-lg`} onClick={e=>{
         setActive(false);
-        dispatch(setPlan("oneTime"),setTotal(oneTime));
-        dispatch(setPlan("monthly"),setTotal(monthly));
+        dispatch(setPlan("oneTime"));
+        dispatch(setTotal(oneTime));
       }}>${oneTime}&nbsp;<sub className='text-xs'>One time</sub></button>
       <button className={`${active?'bg-[#3305FF] text-white':'bg-white text-black'} px-4 py-2 rounded-lg text-lg`} onClick={e=>{
         setActive(true);
-        dispatch(setPlan("monthly"),setTotal(monthly));
+        dispatch(setPlan("monthly"));
+        dispatch(setTotal(monthly));
         }}>${monthly}&nbsp;<sub className='text-xs'>Monthly</sub></button>
 </div>
 <div className='flex gap-4 w-full h-full justify-center'>
