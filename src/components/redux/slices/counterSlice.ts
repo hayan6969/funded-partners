@@ -8,7 +8,7 @@ interface CounterState{
     total:number
 }
 const initialState:CounterState={
-    date:new Date(),
+    date:"1",
     userID:"",
     type:"instantFunding",
     balance:6000,
