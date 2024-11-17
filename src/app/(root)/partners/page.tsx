@@ -14,7 +14,7 @@ function Page() {
   return (
 <>
       <Nav/>
-      <section className='w-screen relative bg-[#080808] flex flex-col before:absolute before:w-96 before:h-96 before:bg-[#3305FF] before:bg-opacity-10 before:rounded-full before:z-[1] before:blur-3xl before:-top-10 after:absolute after:w-96 after:h-96 after:bg-[#9CF05C]  after:bg-opacity-10 after:rounded-full after:z-[1] after:blur-3xl after:top-10 after:-left-20 py-24  gap-12'>
+      <section className='w-screen relative bg-[#080808] flex flex-col before:absolute before:w-96 before:h-96 before:bg-[#3305FF] before:bg-opacity-10 before:rounded-full before:z-[1] before:blur-3xl before:-top-10 after:absolute after:w-96 after:h-96 after:bg-[#9CF05C]  after:bg-opacity-10 after:rounded-full after:z-[1] after:blur-3xl after:top-10 after:-left-20 py-24 gap-12'>
  <div className='flex flex-col gap-4 text-center w-full z-10 px-44'>
   <h1 className='text-6xl font-bold relative bg-gradient-to-r from-[#FFFFFF] to-[#5B8BE3] bg-clip-text text-transparent'>Make Every Click Count</h1>
   <div className='tracking-wider'>Starting earning up to 15% comission on every referral</div>

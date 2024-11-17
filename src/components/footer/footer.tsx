@@ -4,12 +4,13 @@ import React from 'react'
 
 function Footer() {
   return (
-    <footer className='w-screen px-24 py-12 gap-24 bg-black flex justify-between text-white'>
+    <footer className='w-screen px-24 py-12 gap-24 max-lg:gap-8 max-lg:px-12 max-md:px-6 max-sm:px-1 bg-black flex max-lg:flex-col justify-between text-white'>
         <div className='flex flex-col w-3/5'>
-            <div className='flex justify-between'>
+            <div className='flex max-lg:flex-col max-lg:gap-8 justify-between'>
                 <div className='text-5xl font-bold text-[#0081FE]'>
                   Logo.
                 </div>
+                <div className='flex justify-between'>
                 <div className='flex flex-col gap-2'>
                 <h3 className='text-lg font-semibold mb-1'>Sitemap</h3>
                 {NAVBAR_ITEMS.map(item=><Link key={item.href} className='hover:text-[#3305FF] duration-200' href={item.href}>{item.title}</Link>)}
@@ -17,6 +18,7 @@ function Footer() {
                 <div className='flex flex-col gap-2 mb-1'>
                 <h3 className='text-lg font-semibold'>Socials</h3>
                {SOCIAL_ITEMS.map(item=><Link key={item.title} className='hover:text-[#3305FF] duration-200' href={item.href}>{item.title}</Link>)}
+                </div>
                 </div>
             </div>
             <div className='flex py-6 w-full justify-between pr-10'>
