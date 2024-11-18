@@ -2,8 +2,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { setBalance, setPlan, setTotal } from '../redux/slices/counterSlice'
-import { useSelector } from 'react-redux'
-import { RootState } from '../redux/store/store'
 
 function TwoStepChallange() {
     const [activeBtn1,setActiveBtn1]=useState(true)

@@ -37,7 +37,6 @@ export default function RootLayout({
 
     <html className="dark" lang="en">
       <body
-
         className={`${lato.className} antialiased`}
       >
         <ProviderComponent>

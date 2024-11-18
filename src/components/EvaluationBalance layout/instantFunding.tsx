@@ -2,8 +2,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { setBalance, setPlan, setTotal } from '../redux/slices/counterSlice'
-
-
 function InstantFunding() {
   const [activeBtn1,setActiveBtn1]=useState(true)
   const [activeBtn2,setActiveBtn2]=useState(false)

@@ -30,13 +30,13 @@ function Pricing() {
         </div>
                  {/* -------------------------------------------------| mobile |-------------------------------------------------- */}
                  <div className=' flex-col gap-6 w-full justify-center items-center text-center max-lg:flex hidden'>
-                 <div className='w-3/5 p-1 bg-gradient-to-r from-[#5C5DB6] to-[#3305FF] rounded-full flex justify-between'>
-                 <button className={`${!active?'bg-white text-black':'text-white bg-transparent'} text-sm w-1/3 py-2 rounded-full`} onClick={ e=>{
+                 <div className='w-4/5 p-1 bg-gradient-to-r from-[#5C5DB6] to-[#3305FF] rounded-full flex justify-between'>
+                 <button className={`${!active?'bg-white text-black':'text-white bg-transparent'} text-sm w-1/3 max-md:w-2/3 py-2 rounded-full`} onClick={ e=>{
                   dispatch(setType("instantFunding"))
                   setActive(false)
                   setBalanceBtn(false)
                 }}>Instant Funding</button>
-                 <button className={`${active?'bg-white text-black':'text-white bg-transparent'} text-sm w-1/3 py-2 rounded-full`} onClick={ e=>{
+                 <button className={`${active?'bg-white text-black':'text-white bg-transparent'} text-sm w-1/3 max-md:w-2/3 py-2 rounded-full`} onClick={ e=>{
                    dispatch(setType("2stepChallange"))
                    setBalanceBtn(true)
                   setActive(true)}}>2 Step Challanges</button>
