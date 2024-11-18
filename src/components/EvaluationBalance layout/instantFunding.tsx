@@ -12,9 +12,9 @@ function InstantFunding() {
   const dispatch = useDispatch();
   return (
     <>
-    <div className='w-full h-full flex flex-col items-center gap-4'>
+    <div className='w-full h-full flex flex-col gap-4 max-lg:overflow-x-auto'>
 
-<div className='flex justify-between items-center p-1 balance-button-gradient rounded-full gap-4  max-lg:hidden'>
+<div className='flex justify-between items-center p-1 balance-button-gradient rounded-full gap-4 max-lg:hidden'>
       <button className={`${activeBtn1?'bg-white text-black':'text-white bg-transparent'} text-sm px-5 py-1 rounded-full`} onClick={
         e=>{
           setActiveBtn1(true);
@@ -56,8 +56,8 @@ function InstantFunding() {
         dispatch(setTotal(monthly));
         }}>${monthly}&nbsp;<sub className='text-xs'>Monthly</sub></button>
 </div>
-<div className='flex gap-4 w-full h-full justify-center'>
-<div className='flex flex-col gap-4 py-12 px-4'>
+<div className=' flex gap-4 w-full max-lg:w-[520px] h-full'>
+<div className=' flex flex-col gap-4 py-12 px-4'>
   <div>Trading Period</div>
   <div>Minimum Trading Days</div>
   <div>Win Rate</div>
@@ -69,7 +69,7 @@ function InstantFunding() {
 </div>
 <div className='flex flex-col gap-1.5'>
   <h6 className='text-lg text-center text-[#D489FF]'>Instant Funding</h6>
-  <div className='flex flex-col gap-4 py-3 px-12 bg-gradient-to-br from-[#333333] to-[#3F526B] w-full h-full rounded-lg text-center'>
+  <div className='max-lg:w-[250px] flex flex-col gap-4 py-3 px-12 max-lg:px-8 max-md:px-8 bg-gradient-to-br from-[#333333] to-[#3F526B] w-full h-full rounded-lg text-center'>
     <div>Unlimited</div>
     <div>5</div>
     <div>65%</div>

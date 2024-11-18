@@ -14,7 +14,7 @@ function TwoStepChallange() {
     const [monthly,setMonthly]=useState(599)
     const dispatch=useDispatch();
   return (
-    <div className='w-full h-full flex flex-col items-center gap-8'>
+    <div className='w-full  h-full flex flex-col gap-8 overflow-x-auto'>
       <div className='flex justify-between items-center p-1 balance-button-gradient rounded-full gap-4 max-lg:hidden'>
       <button className={`${activeBtn1?'bg-white text-black':'text-white bg-transparent'} text-sm px-5 py-1 rounded-full`} onClick={
         e=>{
@@ -85,7 +85,7 @@ function TwoStepChallange() {
         dispatch(setTotal(monthly))
         }}>${monthly}&nbsp;<sub className='text-xs'>Monthly</sub></button>
 </div>
-      <div className='flex gap-4 justify-center'> 
+      <div className='w-[750px] flex gap-4 justify-center'> 
         <div className='flex flex-col gap-4 py-20'>
              <div>Trading Period</div>
              <div>Minium Trading Days</div>
@@ -97,11 +97,11 @@ function TwoStepChallange() {
              <div>Payout Cycle</div>
              <div>Refundable Fee</div>
         </div>
-        <div className='flex gap-2 text-center'>
+        <div className=' flex gap-2 text-center'>
           <div className='flex flex-col gap-1.5 '>
             <div>Step 1</div>
             <div className='text-lg text-[#D489FF]'>Challange</div>
-            <div className='flex flex-col gap-4 py-4 bg-gradient-to-br from-[#333333] to-[#3F526B] rounded-lg px-8'>
+            <div className='w-[150px] flex flex-col gap-4 py-4 bg-gradient-to-br from-[#333333] to-[#3F526B] rounded-lg px-8'>
              <div>Ultimate</div>
              <div>0</div>
              <div>4%</div>
@@ -113,10 +113,10 @@ function TwoStepChallange() {
              <div>$97</div>
             </div>
           </div>
-          <div className='flex flex-col gap-1.5 '>
+          <div className='flex flex-col gap-1.5'>
             <div>Step 2</div>
             <div className='text-lg text-[#D489FF]'>Verification</div>
-            <div className='flex flex-col gap-4 py-4 bg-gradient-to-br from-[#233747] to-[#18253D] rounded-lg px-8'>
+            <div className='w-[150px] flex flex-col gap-4 py-4 bg-gradient-to-br from-[#233747] to-[#18253D] rounded-lg px-8'>
              <div>Ultimate</div>
              <div>0</div>
              <div>4%</div>
@@ -131,7 +131,7 @@ function TwoStepChallange() {
           <div className='flex flex-col gap-1.5 '>
             <div>Step 3</div>
             <div className='text-lg text-[#D489FF]'>Funded Trader</div>
-            <div className='flex flex-col gap-4 py-4 bg-gradient-to-br from-[#221738] to-[#192630] rounded-lg px-8'>
+            <div className='w-[175px] flex flex-col gap-4 py-4 bg-gradient-to-br from-[#221738] to-[#192630] rounded-lg px-8'>
              <div>Ultimate</div>
              <div>3</div>
              <div>4%</div>
