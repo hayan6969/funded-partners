@@ -85,7 +85,7 @@ function TwoStepChallange() {
         dispatch(setTotal(monthly))
         }}>${monthly}&nbsp;<sub className='text-xs'>Monthly</sub></button>
 </div>
-      <div className='w-[750px] flex gap-4 justify-center'> 
+      <div className='w-[770px] flex gap-4 justify-center'> 
         <div className='flex flex-col gap-4 py-20'>
              <div>Trading Period</div>
              <div>Minium Trading Days</div>
