@@ -2,8 +2,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { setBalance, setPlan, setTotal } from '../redux/slices/counterSlice'
-import { useSelector } from 'react-redux'
-import { RootState } from '../redux/store/store'
+
 
 function InstantFunding() {
   const [activeBtn1,setActiveBtn1]=useState(true)
@@ -14,9 +13,10 @@ function InstantFunding() {
   const [monthly,setMonthly]=useState(599)
   const dispatch = useDispatch();
   return (
+    <>
     <div className='w-full h-full flex flex-col items-center gap-4'>
 
-<div className='flex justify-between items-center p-1 balance-button-gradient rounded-full gap-4'>
+<div className='flex justify-between items-center p-1 balance-button-gradient rounded-full gap-4  max-lg:hidden'>
       <button className={`${activeBtn1?'bg-white text-black':'text-white bg-transparent'} text-sm px-5 py-1 rounded-full`} onClick={
         e=>{
           setActiveBtn1(true);
@@ -46,7 +46,7 @@ function InstantFunding() {
           }}>$12000</button>
 
       </div>
-      <div className=' bg-[#252525] flex justify-between items-center px-6 py-4 rounded-xl gap-4'>
+      <div className=' bg-[#252525] flex justify-between items-center px-6 py-4 rounded-xl gap-4 max-lg:hidden'>
       <button className={`${!active?'bg-[#3305FF] text-white':'bg-white text-black'} px-3 py-2 rounded-lg text-lg`} onClick={e=>{
         setActive(false);
         dispatch(setPlan("oneTime"));
@@ -84,6 +84,8 @@ function InstantFunding() {
 </div>
 </div>
     </div>
+
+    </>
   )
 }
 
