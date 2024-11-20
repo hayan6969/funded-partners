@@ -14,7 +14,7 @@ function TwoStepChallange() {
     const [monthly,setMonthly]=useState(599)
     const dispatch=useDispatch();
   return (
-    <div className='w-full  h-full flex flex-col gap-8 overflow-x-auto'>
+    <div className='w-full h-full flex flex-col items-center max-lg:items-start gap-8 overflow-x-auto'>
       <div className='flex justify-between items-center p-1 balance-button-gradient rounded-full gap-4 max-lg:hidden'>
       <button className={`${activeBtn1?'bg-white text-black':'text-white bg-transparent'} text-sm px-5 py-1 rounded-full`} onClick={
         e=>{

@@ -151,7 +151,7 @@ function Pricing() {
     }}>2 Step Challange</button>
         </div>
        
-        <div className='w-full p-10 border border-[#4B4B4B] rounded-xl flex flex-col justify-center gap-6 '>
+        <div className='w-full p-24 max-lg:px-10 max-md:px-2 border border-[#4B4B4B] rounded-xl flex flex-col justify-center gap-6 '>
              <h5 className='text-lg text-center max-lg:hidden'>Select Balance:</h5>
              <div className='hidden gap-12 items-center justify-center w-full max-lg:flex'>
         <div className='flex gap-2 items-center cursor-pointer'  onClick={e=>{
@@ -179,7 +179,7 @@ function Pricing() {
  {active?<TwoStepChallange/>:<InstantFunding/>}
              
  <div className='w-full flex justify-center'>
- <button className={`bg-white text-black px-44 py-2 rounded-lg hover:bg-[#3305FF] hover:text-white duration-200`} onClick={e=>{
+ <button className={`bg-white text-black px-44 max-lg:px-24 max-sm:px-10 py-2 rounded-lg hover:bg-[#3305FF] hover:text-white duration-200`} onClick={e=>{
    e.preventDefault();
    console.log(count)
   }}>Get Started</button>
